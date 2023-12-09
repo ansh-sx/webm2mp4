@@ -1,7 +1,7 @@
 import './css/main.css'
 import {FFmpeg} from "@ffmpeg/ffmpeg";
 import {fetchFile} from "@ffmpeg/util";
-import {jsConfetti} from "./confetti.ts";
+import {showConfetti} from "./confetti.ts";
 
 type State = 'loading' | 'loaded' | 'convert.start' | 'convert.error' | 'convert.done';
 
@@ -9,7 +9,6 @@ let state: State = 'loading'
 let error = ''
 let progress = 0
 let ffmpeg: FFmpeg;
-let confettiColors = ['#9b5de5', '#f15bb5', '#fee440', '#00bbf9', '#00f5d4'];
 
 const appContainer = document.querySelector('#app') as HTMLDivElement;
 
@@ -49,13 +48,7 @@ const updateDropContainerInner = (newState: State, newProgress?: number) => {
             break;
         case 'convert.done':
             dropContainerInner.innerText = '🎉 Conversion done!';
-            jsConfetti.addConfetti({
-                confettiColors: confettiColors
-            }).then(() => {
-                console.log('🎉 Done')
-            })
-
-            progress = 0;
+            showConfetti();
             break;
 
     }
@@ -88,7 +81,7 @@ dropContainer.addEventListener('dragover', (event) => {
 
 
 const convertVideo = async (video: File) => {
-    updateDropContainerInner('convert.start')
+    updateDropContainerInner('convert.start', 0)
     await ffmpeg.writeFile('input.webm', await fetchFile(video))
 
     await ffmpeg.exec(['-i', 'input.webm', 'output.mp4'])
