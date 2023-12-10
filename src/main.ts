@@ -9,6 +9,7 @@ let state: State = 'loading'
 let error = ''
 let progress = 0
 let ffmpeg: FFmpeg;
+let isDevelopement = import.meta.env.MODE === 'development';
 
 const appContainer = document.querySelector('#app') as HTMLDivElement;
 
@@ -24,6 +25,7 @@ appContainer.innerHTML = `
     </div>
 </div>
 `
+
 const dropContainer = appContainer.querySelector('#dropContainer') as HTMLDivElement;
 const dropContainerInner = appContainer.querySelector('#dropContainerInner') as HTMLDivElement;
 
@@ -134,9 +136,15 @@ const loadFFmpeg = async () => {
         updateDropContainerInner("convert.start", currentProgress)
     })
 
-    await ffmpeg.load({
-        coreURL: `${baseURL}/ffmpeg-core.js`, wasmURL: `${baseURL}/ffmpeg-core.wasm`,
-    });
+    if(isDevelopement){
+        await ffmpeg.load({
+            coreURL: `${baseURL}/ffmpeg-core.js`, wasmURL: `${baseURL}/ffmpeg-core.wasm`,
+        });
+    } else {
+        await ffmpeg.load({
+            coreURL: `/ffmpeg/ffmpeg-core.js`, wasmURL: `/ffmpeg/ffmpeg-core.wasm`,
+        });
+    }
 
     updateDropContainerInner('loaded');
 }
