@@ -16,13 +16,13 @@ This is a simple offline application written in vanilla TypeScript that allows y
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/irahuldogra/video-convertor.git
+   git clone https://github.com/irahuldogra/browservc.git
    ```
 
 2. Install dependencies:
 
    ```bash
-   cd video-convertor
+   cd browservc
    bun install
    ```
 
