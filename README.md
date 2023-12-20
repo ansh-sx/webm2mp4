@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple offline application written in vanilla TypeScript that allows you to convert WebM videos to the MP4 format. The application leverages the power of [FFmpeg](https://ffmpeg.org/) for video conversion. Additionally, it is designed as a Progressive Web App (PWA), enabling users to use it even when offline.
+This is a simple progressive web application written in vanilla TypeScript that allows you to convert WebM videos to the MP4 format. The application leverages the power of [FFmpeg](https://ffmpeg.org/) for video conversion. Additionally, it is designed as a Progressive Web App (PWA), enabling users to use it even when offline.
 
 ## Features
 
