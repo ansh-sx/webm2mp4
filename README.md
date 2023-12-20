@@ -23,7 +23,7 @@ This is a simple offline application written in vanilla TypeScript that allows y
 
    ```bash
    cd video-convertor
-   npm install
+   bun install
    ```
 
 ## Usage
@@ -31,7 +31,7 @@ This is a simple offline application written in vanilla TypeScript that allows y
 1. Start the development server:
 
    ```bash
-   npm run dev
+   bun run dev
    ```
 
    This will launch the application in your default web browser. You can access it at `http://localhost:4321`.
@@ -43,6 +43,7 @@ This is a simple offline application written in vanilla TypeScript that allows y
 - [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework.
 - [FFmpeg](https://ffmpeg.org/): A powerful multimedia processing tool used for video conversion.
 - [Vite](https://vitejs.dev/): A fast and opinionated frontend build tool.
+- [Bun](https://bun.sh/): A fast javascript runtime and package manager.
 
 ## Configuration
 
@@ -61,6 +62,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - The application utilizes the incredible power of [FFmpeg](https://ffmpeg.org/).
 - The UI is built with the help of [Tailwind CSS](https://tailwindcss.com/).
 - Thanks to the [Vite](https://vitejs.dev/) team for providing a fast and efficient build tool.
+- [Bun](https://bun.sh/) for serving the production build.
 
 ## Author
 
